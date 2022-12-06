@@ -2,7 +2,6 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import {Platform} from 'react-native';
 
 const logIn = async (username, password) => {
-  console.log('user info', username);
   if (username === 'admin' && password === '12345678') {
     AsyncStorage.setItem('user', username);
     return {
@@ -46,14 +45,10 @@ const getUserData = async () => {
       message: 'user data',
       user: savedUser,
     };
-  } catch (error) {
-    console.log(error);
-  }
+  } catch (error) {}
 };
 
 const setResponse = async response => {
-  console.log('setResponse');
-  console.log(response);
   AsyncStorage.setItem('data', JSON.stringify(response));
   return {
     status: 'success',
@@ -63,7 +58,6 @@ const setResponse = async response => {
 };
 
 const setUserLocationAccess = async accessible => {
-  console.log('setUserLocationAccess', accessible);
   AsyncStorage.setItem('locationAccess', JSON.stringify(accessible));
   return {
     status: 'success',

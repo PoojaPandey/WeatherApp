@@ -11,8 +11,6 @@ import * as Constant from '../utils/constant';
 export const login = (user, password) => dispatch => {
   return AuthService.logIn(user, password).then(
     response => {
-      console.log('response.status');
-      console.log(response.status);
       if (response.status === 'success') {
         dispatch({
           type: LOGIN_SUCCESS,
@@ -72,7 +70,6 @@ export const getWeatherList = location => dispatch => {
       console.log(
         'There has been a problem with your fetch operation: ' + error.message,
       );
-      console.log('error: ' + error);
       // ADD THIS THROW error
       throw error;
     });
@@ -80,7 +77,6 @@ export const getWeatherList = location => dispatch => {
 
 export const getUser = () => dispatch => {
   return AuthService.getUserData().then(response => {
-    console.log('response', response);
     dispatch({
       type: LOGIN_SUCCESS,
       payload: {user: response.user},
@@ -92,7 +88,6 @@ export const getUser = () => dispatch => {
 
 export const setUserLocationAccess = accessible => dispatch => {
   return AuthService.setUserLocationAccess(accessible).then(response => {
-    console.log('response', response);
     dispatch({
       type: GET_USER_LOCATION_ACCESS_STATUS,
       payload: {locationAccess: response.locationAccess},

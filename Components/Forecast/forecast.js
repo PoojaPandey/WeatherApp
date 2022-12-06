@@ -21,7 +21,7 @@ import ExtraInfoComponent from '../extraInfoComponent';
 import WeeklyForcastComponent from '../weeklyForcastComponent';
 import DeviceInfo from 'react-native-device-info';
 import UserInactivity from 'react-native-user-inactivity';
-import ActionBarImage from '../actionBarImage';
+import Colors from '../../utils/color';
 
 export default function Forecast({route, navigation}) {
   const [forecast, setForecast] = useState(weatherData);
@@ -64,13 +64,13 @@ export default function Forecast({route, navigation}) {
   const setUpNavBar = () => {
     navigation.setOptions({
       headerTitleStyle: {
-        color: '#fff',
+        color: Colors.whiteColor,
       },
       headerRight: () => (
         <Button
           onPress={() => logoutPressed()}
           title={Constant.LOGOUT_BUTTON}
-          color="#00BFFF"
+          color={Colors.themeBlueColor}
         />
       ),
       // headerRight: () => <ActionBarImage onPress={() => logoutPressed()} />,
@@ -81,7 +81,6 @@ export default function Forecast({route, navigation}) {
    * getOneTimeLocation method to get one time location if user given one time access.
    */
   const getOneTimeLocation = () => {
-    console.log('getOneTimeLocation');
     Geolocation.getCurrentPosition(
       position => {
         getWeatherInfo(position);
@@ -101,13 +100,12 @@ export default function Forecast({route, navigation}) {
    * subscribeLocationLocation method to get updated location when user location changes.
    */
   const subscribeLocationLocation = async () => {
-    console.log('subscribeLocationLocation');
     Geolocation.watchPosition(
       position => {
         getWeatherInfo(position);
       },
       error => {
-        Alert.alert(error.message);
+        // Alert.alert(error.message);
       },
       {
         enableHighAccuracy: false,
@@ -126,8 +124,6 @@ export default function Forecast({route, navigation}) {
       .then(response => {
         if (response.status === 'success') {
           setForecast(response.weatherData);
-        } else {
-          Alert.alert(response.message);
         }
       })
       .catch(error => {
@@ -180,19 +176,16 @@ export default function Forecast({route, navigation}) {
 
   // Filter by day weather list
   weatherData.list.map((obj, index) => {
-    console.log('index', index);
-
     if (filterdWeather.length > 0) {
       let weatherObj = filterdWeather[filterdWeather.length - 1];
       if (obj.dt_txt.includes(weatherObj.dt_txt.split(' ')[0])) {
       } else {
         filterdWeather.push(obj);
-        var day = new Date(obj.dt * 1000).getDay();
-        console.log(day);
+        // var day = new Date(obj.dt * 1000).getDay();
+        // console.log(day);
       }
     } else {
       if (index > 0) {
-        console.log('index added', index);
         filterdWeather.push(obj);
       }
     }
