@@ -117,11 +117,11 @@ export default function Login({navigation}) {
       behavior={Platform.OS === 'ios' ? 'padding' : null}>
       <ImageBackground
         resizeMode="cover"
-        source={require('../../Asset/wbg4.jpeg')}
+        source={require('../../asset/wbg4.jpeg')}
         style={style.bgimage}>
         <Image
           style={style.image}
-          source={require('../../Asset/cloud4.png')}
+          source={require('../../asset/cloud4.png')}
           resizeMode="contain"
           resizeMethod="resize"
         />

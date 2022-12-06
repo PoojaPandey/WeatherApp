@@ -17,11 +17,11 @@ import {getWeatherList, logout} from '../../action/auth';
 import style from './forecastStyle';
 import * as Constant from '../../utils/constant';
 import Geolocation from 'react-native-geolocation-service';
-import ExtraInfoComponent from './../extraInfoComponent';
+import ExtraInfoComponent from '../extraInfoComponent';
 import WeeklyForcastComponent from '../weeklyForcastComponent';
 import DeviceInfo from 'react-native-device-info';
 import UserInactivity from 'react-native-user-inactivity';
-import ActionBarImage from './../actionBarImage';
+import ActionBarImage from '../actionBarImage';
 
 export default function Forecast({route, navigation}) {
   const [forecast, setForecast] = useState(weatherData);
@@ -219,17 +219,17 @@ export default function Forecast({route, navigation}) {
     return (
       <View style={style.extraInfo}>
         <ExtraInfoComponent
-          img={require('./../../Asset/temp1.png')}
+          img={require('./../../asset/temp1.png')}
           value={`${Constant.getTempInCelcius(main.feels_like)}C`}
           text={Constant.FEELS_LIKE}
         />
         <ExtraInfoComponent
-          img={require('./../../Asset/humidity.png')}
+          img={require('./../../asset/humidity.png')}
           value={main.humidity}
           text={Constant.HUMIDITY}
         />
         <ExtraInfoComponent
-          img={require('./../../Asset/wind1.png')}
+          img={require('./../../asset/wind1.png')}
           value={Math.round(wind.speed * 3.6)}
           text={Constant.KM_H}
         />
@@ -272,7 +272,7 @@ export default function Forecast({route, navigation}) {
     <View style={style.container}>
       <ImageBackground
         resizeMode="cover"
-        source={require('../../Asset/wbg4.jpeg')}
+        source={require('../../asset/wbg4.jpeg')}
         style={style.bgimage}>
         <UserInactivity
           isActive={active}

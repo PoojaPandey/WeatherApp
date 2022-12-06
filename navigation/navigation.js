@@ -6,11 +6,10 @@ import {Button} from 'react-native';
 const Stack = createNativeStackNavigator();
 import {useDispatch, useSelector} from 'react-redux';
 
-import Login from '../Components/Login/login';
-import Dashboard from '../Components/Forecast/forecast';
+import Login from '../components/login/login';
+import Dashboard from '../components/forecast/forecast';
 import * as Constant from '../utils/constant';
 import {getUser} from '../action/auth';
-// import ActionBarImage from './../Components/actionBarImage';
 
 const AuthStack = () => (
   <Stack.Navigator initialRouteName={Constant.LOGIN_SCREEN}>
