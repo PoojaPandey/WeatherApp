@@ -181,8 +181,6 @@ export default function Forecast({route, navigation}) {
       if (obj.dt_txt.includes(weatherObj.dt_txt.split(' ')[0])) {
       } else {
         filterdWeather.push(obj);
-        // var day = new Date(obj.dt * 1000).getDay();
-        // console.log(day);
       }
     } else {
       if (index > 0) {
