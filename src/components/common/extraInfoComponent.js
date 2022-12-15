@@ -1,6 +1,6 @@
 import React from 'react';
 import {View, Text, Dimensions, StyleSheet, Image} from 'react-native';
-import Colors from '../utils/color';
+import Colors from '../../utils/color';
 
 export default function extraInfoComponent({img, value, text}) {
   return (

@@ -14,7 +14,7 @@ import {
 // import CheckBox from '@react-native-community/checkbox';
 import {useDispatch} from 'react-redux';
 import {login} from '../../redux/action/auth';
-import ButtonComponent from '../buttonComponent';
+import ButtonComponent from '../common/buttonComponent';
 import * as Constant from '../../utils/constant';
 import * as ErrorConstants from '../../utils/errorConstant';
 import Geolocation from 'react-native-geolocation-service';

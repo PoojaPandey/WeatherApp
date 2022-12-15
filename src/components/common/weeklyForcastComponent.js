@@ -1,6 +1,6 @@
 import React from 'react';
 import {View, Text, StyleSheet, Image} from 'react-native';
-import Colors from '../utils/color';
+import Colors from '../../utils/color';
 
 export default function weeklyForcastComponent({img, day, temp, description}) {
   return (
