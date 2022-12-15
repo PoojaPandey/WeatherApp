@@ -3,10 +3,9 @@ import {
   LOGOUT,
   GET_WAETHER_LIST,
   GET_WAETHER_FAIL,
-  GET_USER_LOCATION_ACCESS_STATUS,
 } from './type';
 import AuthService from '../services/authService';
-import * as Constant from '../utils/constant';
+import * as Constant from '../../utils/constant';
 
 export const login = (user, password) => dispatch => {
   return AuthService.logIn(user, password).then(
@@ -76,17 +75,6 @@ export const getUser = () => dispatch => {
     dispatch({
       type: LOGIN_SUCCESS,
       payload: {user: response.user},
-    });
-    Promise.resolve();
-    return response;
-  });
-};
-
-export const setUserLocationAccess = accessible => dispatch => {
-  return AuthService.setUserLocationAccess(accessible).then(response => {
-    dispatch({
-      type: GET_USER_LOCATION_ACCESS_STATUS,
-      payload: {locationAccess: response.locationAccess},
     });
     Promise.resolve();
     return response;

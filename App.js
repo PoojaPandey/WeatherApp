@@ -6,11 +6,11 @@
  * @flow strict-local
  */
 
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import {Provider as StoreProvider} from 'react-redux';
-import Navigation from './navigation/navigation';
+import Navigation from './src/navigation/navigation';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
-import store from './shared/store';
+import store from './src/redux/shared/store';
 import SplashScreen from 'react-native-splash-screen';
 
 const App = () => {

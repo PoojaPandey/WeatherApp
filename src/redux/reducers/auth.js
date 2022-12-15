@@ -16,42 +16,34 @@ export const auth = (state = initialState, action) => {
     case LOGIN_SUCCESS:
       return {
         ...state,
-        // isLoggedIn: true,
         user: payload.user,
         weatherData: null,
       };
     case LOGOUT:
       return {
         ...state,
-        // isLoggedIn: false,
         user: null,
         waetherData: null,
       };
     case GET_WAETHER_LIST:
       return {
         ...state,
-        // isLoggedIn: true,
         weatherData: payload.weatherData,
       };
     case GET_WAETHER_FAIL:
       return {
         ...state,
-        // isLoggedIn: true,
       };
 
     case GET_USER:
       return {
         ...state,
-        // isLoggedIn: true,
         user: payload.user,
-        // data: null,
       };
     case GET_USER_LOCATION_ACCESS_STATUS:
       return {
         ...state,
-        // isLoggedIn: true,
         user: null,
-        // locationAccess: payload.locationAccess,
       };
 
     default:

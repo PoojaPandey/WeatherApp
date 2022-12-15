@@ -13,7 +13,7 @@ import {
 } from 'react-native';
 // import CheckBox from '@react-native-community/checkbox';
 import {useDispatch} from 'react-redux';
-import {login} from '../../action/auth';
+import {login} from '../../redux/action/auth';
 import ButtonComponent from '../buttonComponent';
 import * as Constant from '../../utils/constant';
 import * as ErrorConstants from '../../utils/errorConstant';
@@ -140,7 +140,6 @@ export default function Login({navigation}) {
               style={style.textInput}
               placeholder={Constant.PASSWORD_PLACEHOLDER}
               secureTextEntry={true}
-              mode="outlined"
               value={password}
               onChangeText={text => onPasswordTextChange(text)}
             />

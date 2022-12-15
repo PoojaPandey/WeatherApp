@@ -1,6 +1,5 @@
 import React from 'react';
 import {View, Image, StyleSheet, TouchableOpacity} from 'react-native';
-// import * from './../Asset/logout'
 
 const ActionBarImage = onPress => {
   return (
@@ -8,7 +7,7 @@ const ActionBarImage = onPress => {
       <View style={{flexDirection: 'row'}}>
         <Image
           source={{
-            uri: './../Asset/humidity.png',
+            uri: './../asset/humidity.png',
           }}
           style={styles.image}
         />

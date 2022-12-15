@@ -13,7 +13,7 @@ import {
   BackHandler,
 } from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
-import {getWeatherList, logout} from '../../action/auth';
+import {getWeatherList, logout} from '../../redux/action/auth';
 import style from './forecastStyle';
 import * as Constant from '../../utils/constant';
 import Geolocation from 'react-native-geolocation-service';
@@ -26,11 +26,12 @@ import Colors from '../../utils/color';
 export default function Forecast({route, navigation}) {
   const [forecast, setForecast] = useState(weatherData);
   const [selectedDay] = useState(0);
-  const [active] = useState(true);
+  const [active, setActive] = useState(true);
   const [timer] = useState(30000);
   const reducer = useSelector(state => state);
   const {auth} = reducer;
   const {weatherData} = auth;
+  // const [weatherData] = useState(weatherDataConst);
 
   const dispatch = useDispatch();
 
@@ -41,7 +42,10 @@ export default function Forecast({route, navigation}) {
       'hardwareBackPress',
       () => true,
     );
-    return () => backHandler.remove();
+    return () => {
+      setActive(false);
+      backHandler.remove();
+    };
   }, []);
 
   /**
@@ -135,6 +139,7 @@ export default function Forecast({route, navigation}) {
    * sessionExpried method will be called when user is not active in some time.
    */
   const sessionExpried = () => {
+    console.log('sessionExpried');
     Alert.alert(
       Constant.SESSION_EXPIRED_TITLE,
       Constant.SESSION_EXPIRED_DETAIL,
@@ -146,6 +151,7 @@ export default function Forecast({route, navigation}) {
    * logoutPressed method to get logout confirmation from user..
    */
   const logoutPressed = () => {
+    console.log('logoutPressed');
     Alert.alert(Constant.CONFIRMATION, Constant.LOGUT_ALERT_MSG, [
       {text: 'No'},
       {text: 'Yes', onPress: () => confirmLogout()},
@@ -156,6 +162,7 @@ export default function Forecast({route, navigation}) {
    * confirmLogout method to get confirmation for logout the user.
    */
   const confirmLogout = () => {
+    console.log('confirmLogout');
     dispatch(logout()).then(response => {
       if (response.status === 'success') {
         navigation.navigate(Constant.LOGIN_SCREEN);
@@ -174,6 +181,7 @@ export default function Forecast({route, navigation}) {
   // Weather list for days forcast
   var filterdWeather = [];
 
+  console.log('weatherData', weatherData);
   // Filter by day weather list
   weatherData.list.map((obj, index) => {
     if (filterdWeather.length > 0) {
@@ -302,8 +310,8 @@ export default function Forecast({route, navigation}) {
     </View>
   );
 }
-/*
-export const weatherData = {
+
+export const weatherDataConst = {
   cod: '200',
   message: 0,
   cnt: 40,
@@ -476,4 +484,3 @@ export const weatherData = {
     sunset: 1661882248,
   },
 };
-*/

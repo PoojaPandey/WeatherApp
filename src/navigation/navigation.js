@@ -9,7 +9,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import Login from '../components/login/login';
 import Dashboard from '../components/forecast/forecast';
 import * as Constant from '../utils/constant';
-import {getUser} from '../action/auth';
+import {getUser} from '../redux/action/auth';
 
 const AuthStack = () => (
   <Stack.Navigator initialRouteName={Constant.LOGIN_SCREEN}>
@@ -75,12 +75,12 @@ const Navigation = () => {
 
   const dispatch = useDispatch();
   const init = async () => {
-    await dispatch(getUser());
+    dispatch(getUser());
   };
 
   useEffect(() => {
     init();
-  }, [user]);
+  }, []);
 
   return (
     <NavigationContainer>

@@ -57,19 +57,9 @@ const setResponse = async response => {
   };
 };
 
-const setUserLocationAccess = async accessible => {
-  AsyncStorage.setItem('locationAccess', JSON.stringify(accessible));
-  return {
-    status: 'success',
-    message: 'User location access',
-    locationAccess: accessible,
-  };
-};
-
 export default {
   logIn,
   logOut,
   getUserData,
   setResponse,
-  setUserLocationAccess,
 };

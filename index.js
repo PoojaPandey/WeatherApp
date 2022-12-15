@@ -7,7 +7,7 @@ import App from './App';
 import {name as appName} from './app.json';
 import {Provider as StoreProvider} from 'react-redux';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
-import store from './shared/store';
+import store from './src/redux/shared/store';
 
 const ReduxProvider = () => {
   return (

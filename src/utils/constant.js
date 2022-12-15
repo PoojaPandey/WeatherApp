@@ -18,7 +18,7 @@ export const ICON_API = 'https://openweathermap.org/img/wn/';
 export const TODAY = '/ Today';
 export const FEELS_LIKE = 'Feels Like';
 export const HUMIDITY = 'Humidity';
-export const KM_H = '"km/h"';
+export const KM_H = 'km/h';
 export const WEEKLY_FORECAST = 'Weekly Forecast';
 
 export const getTempInCelcius = temp => {
