@@ -1,7 +1,6 @@
 import {
   LOGIN_SUCCESS,
   LOGOUT,
-  GET_USER_LOCATION_ACCESS_STATUS,
   GET_WAETHER_LIST,
   GET_WAETHER_FAIL,
   GET_USER,
@@ -40,12 +39,6 @@ export const auth = (state = initialState, action) => {
         ...state,
         user: payload.user,
       };
-    case GET_USER_LOCATION_ACCESS_STATUS:
-      return {
-        ...state,
-        user: null,
-      };
-
     default:
       return state;
   }
