@@ -34,7 +34,8 @@ const AuthStack = () => (
           },
           headerBackVisible: false,
           headerRight: () => <Button title="Logout" />,
-        })
+        },
+        {gestureEnabled: false})
       }
     />
   </Stack.Navigator>
@@ -63,7 +64,8 @@ const AuthStackIfLoggedIn = () => (
           },
           headerBackVisible: false,
           headerRight: () => <Button title="Logout" />,
-        })
+        },
+        {gestureEnabled: false})
       }
     />
   </Stack.Navigator>
